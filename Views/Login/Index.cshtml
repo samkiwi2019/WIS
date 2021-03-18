@@ -1,0 +1,51 @@
+@model WIS.Controllers.LoginController.LoggedUser;
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "_Layout";
+}
+
+<h2>Login</h2>
+<form class="row g-3 needs-validation" novalidate action="/login" method="post">
+    <div class="col-md-7 mt-4">
+        <label for="Email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="Email" asp-for="Email" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please provide a Email.
+        </div>
+    </div>
+
+    <div class="col-md-7 mt-4">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="Password" asp-for="HashPassword" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+           Twice password must be the same.
+        </div>
+    </div>
+    <div class="col-12 mt-5">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+</form>
+<script >
+(function () {
+  'use strict'
+  var forms = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>

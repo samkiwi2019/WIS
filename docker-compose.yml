@@ -1,0 +1,29 @@
+version: "3.8"
+
+networks:
+  localdev:
+    name: localdev
+
+services:
+  main-server:
+    build: .
+    restart: always
+    ports:
+      - "5001:80"
+    networks:
+      - localdev
+
+  db-server:
+    image: mysql:8.0.23
+    container_name: db-server
+    environment:
+      MYSQL_ROOT_PASSWORD: "66778899"
+      MYSQL_DATABASE: "DbWIS"
+    volumes:
+      - ~/data/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      - localdev
