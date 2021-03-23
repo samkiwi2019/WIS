@@ -16,7 +16,7 @@ namespace WIS.Data
 
         public async Task<User> VerifyUser(string email, string password)
         {
-            var user = await _ctx.Users.FirstOrDefaultAsync(x => x.Email.Equals(email));
+            var user = await _ctx.Users.FirstOrDefaultAsync(x => x.Email.Equals(email) || x.Nickname.Equals(email));
             var isPasswordMatched = Extensions.VerifyPassword(password, user.HashPassword, user.Salt);
             return isPasswordMatched ? user : null;
         }

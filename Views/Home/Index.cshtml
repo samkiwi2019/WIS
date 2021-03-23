@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@if (!string.IsNullOrEmpty((string?) ViewData["user"]))
+@if (!string.IsNullOrEmpty(ViewData["user"] as string))
 {
     <div class="text-center mt-5">
         <form action="/home/logout" method="post">
@@ -16,3 +16,61 @@ else
         <h4>Welcome, Welcome Institute of Studies (WIS)</h4>
     </div>
 }
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+<h2>Class List</h2>
+
+<table>
+    <tr>
+        <th>Class ID</th>
+        <th>Name</th>
+        <th>Term</th>
+    </tr>
+    <tr>
+        <td>SOFT-703</td>
+        <td>Web Application</td>
+        <td>12 weeks</td>
+    </tr>
+    <tr>
+        <td>SOFT-708</td>
+        <td>Mobile Application</td>
+        <td>12 weeks</td>
+    </tr>
+    <tr>
+        <td>SOFT-806</td>
+        <td>CI / CD</td>
+        <td>12 weeks</td>
+    </tr>
+    <tr>
+        <td>SOFT-807</td>
+        <td>Cloud Application</td>
+        <td>12 weeks</td>
+    </tr>
+    <tr>
+        <td>SOFT-807</td>
+        <td>Cloud Application</td>
+        <td>12 weeks</td>
+    </tr>
+    <tr>
+        <td>SOFT-808</td>
+        <td>UI/UX</td>
+        <td>12 weeks</td>
+    </tr>
+</table>

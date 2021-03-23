@@ -24,7 +24,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Index">Register</a>
                     </li>
-                    @if (string.IsNullOrEmpty((string?) ViewData["user"]))
+                    @if (string.IsNullOrEmpty(ViewData["user"] as string))
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
