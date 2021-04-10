@@ -11,6 +11,12 @@ namespace WIS.Utils
             public string Salt { get; set; }
         }
 
+        /// <summary>
+        /// Generate hash password based on user's password
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
         public static HashSalt GenerateSaltedHash(string password, int size = 64)
         {
             var saltBytes = new byte[size];
@@ -25,6 +31,13 @@ namespace WIS.Utils
             return hashSalt;
         }
 
+        /// <summary>
+        /// Verify password while users login.
+        /// </summary>
+        /// <param name="enteredPassword"></param>
+        /// <param name="storedHash"></param>
+        /// <param name="storedSalt"></param>
+        /// <returns></returns>
         public static bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt)
         {
             var saltBytes = Convert.FromBase64String(storedSalt);

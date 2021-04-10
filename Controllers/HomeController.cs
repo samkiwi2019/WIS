@@ -13,13 +13,6 @@ namespace WIS.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserRepo _repository;
-
-        public HomeController(IUserRepo userRepo)
-        {
-            _repository = userRepo;
-        }
-
         public IActionResult Index()
         {
             var cookieValue = Request.Cookies["WISTOKEN"];
